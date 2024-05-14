@@ -1,0 +1,59 @@
+<UI>:
+    id:scr_manager
+    Scr_knowledge:
+    Scr_bmi:
+
+<Scr_knowledge>:
+    name:"Scr_knowledge"
+    BoxLayout:
+        orientation:"vertical" 
+        Image:
+            source:"bmi_knowledge.jpg"
+        Button:
+            text:"คำนวณ"
+            size_hint:0.25,0.10
+            pos_hint: {'x': 0.38,'y': 0.5}
+            font_name:"tahoma"
+            on_press:app.root.current='Scr_bmi'
+
+<Scr_bmi>:
+    name:"Scr_bmi"
+    BoxLayout:
+        orientation:"vertical"  
+        TextInput:
+            id:txt_weight
+            font_size:40
+            size_hint:(1,0.35)
+            input_filter:'int'
+            hint_text:"input weigth"
+            readonly:True
+        Slider:
+            id: slider_weight
+            min: 30
+            max: 100
+            step:0.5
+            set:40
+            on_value: txt_weight.text=str(slider_weight.value)
+        TextInput:
+            id:txt_height
+            font_size:40
+            size_hint:(1,0.35)
+            hint_text:"input height"
+            readonly:True
+        Slider:
+            id: slider_height
+            min: 130
+            max: 190
+            step:0.5
+            set:140
+            on_value: txt_height.text=str(slider_height.value)
+        Button:
+            id:btn_bmi
+            on_press:root.cal_bmi() #ผูกฟังชั่น cal_bmi ไม่ส่งค่าใดๆ
+            text:"Id:txt_weight"
+            background_color:'green'
+        Label:
+            id:lbl_bmi
+            text:"Id: lbl_bmi"
+        Image:
+            id:img_bmi
