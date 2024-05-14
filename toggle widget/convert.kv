@@ -1,0 +1,47 @@
+<UI>:
+    id:scr_manager
+    Scr1:
+    Scr2:
+
+<Scr1>:
+    name:"Scr1"
+    canvas.before:
+        Rectangle:
+            source:"11.png"
+            size:root.width,root.height
+            pos:self.pos
+    Button:
+        text:"แปลงเลขฐาน"
+        size_hint:0.25,0.10
+        pos_hint: {'x': 0.38,'y': 0.1}
+        font_name:"tahoma"
+        on_press:app.root.current='Scr2'
+
+<Scr2>:
+    name:"Scr2"
+    BoxLayout:
+        orientation:"vertical"  
+        TextInput:
+            id:txt_number
+            font_size:40
+            size_hint:(1,0.35)
+            input_filter:'int'
+        BoxLayout:
+            ToggleButton:
+                text:'base2'
+                group:'convert_mode'
+                font_name:"tahoma"
+                on_press:root.convert(*args)
+            ToggleButton:
+                text:'base8'
+                group:'convert_mode'
+                font_name:"tahoma"
+                on_press:root.convert(*args)
+            ToggleButton:
+                text:'base16'
+                group:'convert_mode'
+                font_name:"tahoma"
+                on_press:root.convert(*args)
+        Label:
+            id:lbl_output
+            text:"Id: lbl_output"
