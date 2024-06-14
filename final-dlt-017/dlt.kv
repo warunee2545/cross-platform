@@ -1,0 +1,120 @@
+<UI>:
+    id:scr_manager
+    MainScreen:
+    Register:
+
+    
+
+<MainScreen>:
+    name:"main_scr"
+    canvas.before:
+        Rectangle:
+            source:"33.jpg"
+            size:root.width,root.height
+            pos:self.pos
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+        Image:
+            source: '8.png'
+            size_hint: 1, 0.5
+        AnchorLayout:
+            anchor_y: 'top'
+            size_hint: 1, None
+            height: self.parent.height * 0.1
+        Label:
+            pos_hint: {'center_y': 1.0}  # เพิ่มตำแหน่งให้สูงขึ้น
+            text: 'ระบบการอบรมใบอนุญาตขับรถ'
+            font_size: '24sp'
+            size_hint: 1, 0.2
+            font_name: 'tahoma'       
+        Button:
+            text: 'เข้าสู่ระบบ'
+            size_hint: 1, 0.3
+            on_press:app.root.current='Register'
+            font_name: 'tahoma'  
+            background_color: (242, 255, 0, 0.8)  # สีเหลือง (RGBA)
+            color: (0,0,0,1)
+        Button:           
+            text: 'ลงทะเบียนใหม่'
+            size_hint: 1, 0.3
+            on_press:app.root.current='Register'
+            font_name: 'tahoma' 
+            background_color:(128,0,128)
+            color: (0,0,0,1)
+        Button:
+            text: 'For Foreigner'
+            size_hint: 1, 0.3
+            on_press:app.root.current='Register'
+            font_name: 'tahoma'
+            background_color: ("#3399FF")
+            
+        Image:
+            source: 'l.png'
+            size_hint: 0, 0.3
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+        Label:
+            text: 'Copyrights (สงวนลิขสิทธิ์) 2021'   
+            font_size: '15sp'
+            size_hint: 1, 0.2
+            font_name: 'tahoma'
+        Label:
+            text: 'กรมการขนส่งทางบก|dlt.go.th'
+            font_size: '15sp'
+            size_hint: 1, 0.2
+            font_name: 'tahoma'
+<Register>:
+    name:"Register"
+    canvas.before:
+        Rectangle:
+            source:"33.jpg"
+            size:root.width,root.height
+            pos:self.pos
+    BoxLayout:
+        orientation:"vertical"
+        padding: 10
+        spacing: 10
+        Image:
+            source: '8.png'
+            size_hint: 1, 0.5
+        AnchorLayout:
+            anchor_y: 'top'
+            size_hint: 1, None
+            height: self.parent.height * 0.1
+        Label:
+            pos_hint: {'center_y': 1.0}  # เพิ่มตำแหน่งให้สูงขึ้น
+            text: 'ระบบการอบรมใบอนุญาตขับรถ'
+            font_name:"tahoma"
+        TextInput:
+            id:id_card
+            font_size:18
+            size_hint:(1,0.30)
+            hint_text:"ระบุเลขบัตรประชาชน"
+            font_name:"tahoma"
+        TextInput:
+            font_size:18
+            size_hint:(1,0.30)
+            hint_text:"ระบุเลขบัตรประชาชนอีกครั้ง"
+            font_name:"tahoma"
+        TextInput:
+            id:phon_num
+            font_size:18
+            size_hint:(1,0.30)
+            hint_text:"ระบุเบอร์โทรศัพท์"
+            font_name:"tahoma"
+        TextInput:
+            font_size:18
+            size_hint:(1,0.30)
+            hint_text:"ระบุอีเมล"
+            font_name:"tahoma"
+        Button:
+            id:btn_regis
+            text:"ดำเนินการต่อ"
+            background_color:'purple'
+            size_hint:0.25,0.25
+            pos_hint: {'x': 0.38,'y': 0.5}
+            font_name:"tahoma"
+            on_release: root.check()
+
+
